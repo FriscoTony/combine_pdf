@@ -100,7 +100,7 @@ module CombinePDF
       remove_old_ids
       # set data from parser
       @version = parser.version if parser.version.is_a? Float
-      @info.replace(parer.info_object) if parser.info_object
+      @info.replace(parser.info_object) if parser.info_object
       @names = parser.names_object || {}
       @forms_data = parser.forms_object || {}
       @outlines = parser.outlines_object || {}
