@@ -54,7 +54,7 @@ module CombinePDF
     end
 
     def creation_date=(new_creation_date = nil)
-      self[:CreationDate] = format_date(new_creation_date)
+      self[:CreationDate] = PDFInfo.format_date(new_creation_date)
     end
 
     def mod_date
@@ -62,7 +62,7 @@ module CombinePDF
     end
 
     def mod_date=(new_mod_date = nil)
-      self[:ModDate] = format_date(new_mod_date)
+      self[:ModDate] = PDFInfo.format_date(new_mod_date)
     end
 
     def trapped
