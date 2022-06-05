@@ -92,7 +92,7 @@ module CombinePDF
       @objects = []
       @version = 0
       @viewer_preferences = {}
-      @info = {}
+      @info = PDFInfo.new
       parser ||= PDFParser.new('')
       raise TypeError, "initialization error, expecting CombinePDF::PDFParser or nil, but got #{parser.class.name}" unless parser.is_a? PDFParser
       @objects = parser.parse
