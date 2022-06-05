@@ -125,33 +125,6 @@ module CombinePDF
       p
     end
 
-    # get the title for the pdf
-    # The title is stored in the information dictionary and isn't required
-    def title
-      @info[:Title]
-    end
-
-    # set the title for the pdf
-    # The title is stored in the information dictionary and isn't required
-    # new_title:: a string that is the new author value.
-    def title=(new_title = nil)
-      @info[:Title] = new_title
-    end
-
-    # get the author value for the pdf.
-    # The author is stored in the information dictionary and isn't required
-    def author
-      @info[:Author]
-    end
-
-    # set the author value for the pdf.
-    # The author is stored in the information dictionary and isn't required
-    #
-    # new_title:: a string that is the new author value.
-    def author=(new_author = nil)
-      @info[:Author] = new_author
-    end
-
     # Clears any existing form data.
     def clear_forms_data
       @forms_data.nil? || @forms_data.clear
