@@ -1,5 +1,5 @@
 module CombinePDF
-  class pdf_info
+  class PDFInfo
     extend Hash
 
     def initialize
