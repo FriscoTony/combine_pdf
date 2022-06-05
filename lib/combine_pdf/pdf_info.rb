@@ -79,6 +79,17 @@ module CombinePDF
       return new_date.strftime "D:%Y%m%d%H%M%S%:::z'00" if new_date.respond_to?(:strftime)
       new_date
     end
+  end
+
+  class PDF
+    def subject
+      self.info.title
+    end
+
+    def subject=(new_subject)
+      self.info.subject=new_subject
+    end
 
   end
+
 end
