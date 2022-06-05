@@ -151,8 +151,8 @@ module CombinePDF
       # set info for merged file
       mod_date = Time.now
 
-      # set creation date to now if it doesn't already exist
-      creation_date ||= @info.mod_date
+      # set creation date to mod date if it doesn't already exist
+      creation_date ||= mod_date
 
       # legacy behavior... assign subject and producer to metadata
       subject = options[:subject] if options[:subject]
