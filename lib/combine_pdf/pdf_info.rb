@@ -54,7 +54,7 @@ module CombinePDF
     end
 
     def creation_date=(new_creation_date = nil)
-      self[:CreationDate] = new_creation_date
+      self[:CreationDate] = format_date(new_creation_date)
     end
 
     def mod_date
@@ -62,7 +62,7 @@ module CombinePDF
     end
 
     def mod_date=(new_mod_date = nil)
-      self[:ModDate] = new_mod_date
+      self[:ModDate] = format_date(new_mod_date)
     end
 
     def trapped
@@ -71,6 +71,14 @@ module CombinePDF
 
     def trapped=(new_trapped = nil)
       self[:Trapped] = new_trapped
+    end
+
+    # if we're passed a date object, return a formatted string
+    # otherwise just use the string we've been passed
+    def self.format_date(new_date)
+        return new_date.strftime "D:%Y%m%d%H%M%S%:::z'00" if new_date.respond_to?(:strftime)
+        new_date
+      end
     end
 
   end
