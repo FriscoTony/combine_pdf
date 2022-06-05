@@ -48,7 +48,7 @@ module CombinePDF
       @parsed = [].dup
       @references = [].dup
       @root_object = {}.dup
-      @info_object = {}.dup
+      @info_object = PDFInfo.new
       @names_object = {}.dup
       @outlines_object = {}.dup
       @forms_object = {}.dup
