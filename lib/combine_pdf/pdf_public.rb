@@ -92,7 +92,7 @@ module CombinePDF
       @objects = []
       @version = 0
       @viewer_preferences = {}
-      @info = PDFInfo.new
+      @info = {}}
       parser ||= PDFParser.new('')
       raise TypeError, "initialization error, expecting CombinePDF::PDFParser or nil, but got #{parser.class.name}" unless parser.is_a? PDFParser
       @objects = parser.parse
@@ -109,7 +109,7 @@ module CombinePDF
 
       # general globals
       @set_start_id = 1
-      @info[:Producer] = "Ruby CombinePDF #{CombinePDF::VERSION} Library"
+      producer = "Ruby CombinePDF #{CombinePDF::VERSION} Library"
       @info.delete :CreationDate
       @info.delete :ModDate
     end
@@ -149,7 +149,9 @@ module CombinePDF
       @version = 1.5 if @version.to_f == 0.0
 
       # set info for merged file
-      @info.mod_date ||= PDFInfo.format_date(Time.now.strftime)
+      @info.mod_date = Time.now
+
+      # set creation date to now if it doesn't already exist
       @info.creation_date ||= @info.mod_date
 
       # legacy behavior... assign subject and producer to metadata

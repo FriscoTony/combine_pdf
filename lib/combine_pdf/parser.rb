@@ -192,9 +192,6 @@ module CombinePDF
         @info_object = {}
       end
       
-      # convert @info_object from Hash to PDFInfo
-      @info_object = PDFInfo.new.replace(@info_object)
-
       # we can clear the resolution hash now
       @resolution_hash.clear if @resolution_hash
       # # # ## remove object streams - if they exist
