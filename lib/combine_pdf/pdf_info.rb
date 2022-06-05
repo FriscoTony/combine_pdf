@@ -76,9 +76,8 @@ module CombinePDF
     # if we're passed a date object, return a formatted string
     # otherwise just use the string we've been passed
     def self.format_date(new_date)
-        return new_date.strftime "D:%Y%m%d%H%M%S%:::z'00" if new_date.respond_to?(:strftime)
-        new_date
-      end
+      return new_date.strftime "D:%Y%m%d%H%M%S%:::z'00" if new_date.respond_to?(:strftime)
+      new_date
     end
 
   end
