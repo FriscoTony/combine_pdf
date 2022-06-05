@@ -149,14 +149,14 @@ module CombinePDF
       @version = 1.5 if @version.to_f == 0.0
 
       # set info for merged file
-      @info.mod_date = Time.now
+      mod_date = Time.now
 
       # set creation date to now if it doesn't already exist
-      @info.creation_date ||= @info.mod_date
+      creation_date ||= @info.mod_date
 
       # legacy behavior... assign subject and producer to metadata
-      @info.subject = options[:subject] if options[:subject]
-      @info.producer = options[:producer] if options[:producer]
+      subject = options[:subject] if options[:subject]
+      producer = options[:producer] if options[:producer]
       
       # rebuild_catalog
       catalog = rebuild_catalog_and_objects
